@@ -14,8 +14,8 @@ fn first_sample(){
     println!("Welcome to the guessing GAME !!!!");
     println!("Guess the number!");
     let mut guess = String::new();
-    let name = "lenin"; //inmutable
-    let mut last_name = "acosta"; //mutable
+    let _name = "lenin"; //inmutable
+    let mut _last_name = "acosta"; //mutable
     io::stdin()
     .read_line(& mut guess)
     .expect("failes to read line...");
