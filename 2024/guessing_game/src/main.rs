@@ -48,10 +48,11 @@ fn comparing_secret_number() {
 }
 
 fn comparing_secret_number_loop() {
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let max_num = 10;
+    let secret_number = rand::thread_rng().gen_range(1..=max_num);
     loop {
         let mut user_input = String::new();
-        println!("enter a NUMBER between 1 and 100:");
+        println!("enter a NUMBER between 1 and {max_num}:");
         io::stdin()
             .read_line(&mut user_input)
             .expect("[error] failed to read line");
