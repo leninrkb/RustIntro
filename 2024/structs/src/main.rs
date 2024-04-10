@@ -1,5 +1,5 @@
 fn main() {
-    let mut lenin = User {
+    let mut lenin: User = User {
         age: 23,
         height: 176,
         weight: 53,
@@ -26,7 +26,7 @@ fn main() {
         account: String::from("leninrkb"),
         password: 123 
     };
-    let mut google_account = Account{
+    let mut google_account = Account {
         signed_count: account.signed_count,
         account: String::from("google"),
         password: 123
@@ -37,7 +37,14 @@ fn main() {
     };
     google_account.account = String::from("asd");
     let account_name = google_account.account;
+    let pixel: Color = Color(123, 234, 255);
+    let pixel2: Color = Color(pixel.0, pixel.1, 255);
+    let mut just_unit: UnitLike = UnitLike;
 }
+
+struct UnitLike;
+
+struct Color(u8, u8, u8);
 
 struct Account {
     signed_count: u32,
