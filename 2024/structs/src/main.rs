@@ -40,6 +40,22 @@ fn main() {
     let pixel: Color = Color(123, 234, 255);
     let pixel2: Color = Color(pixel.0, pixel.1, 255);
     let mut just_unit: UnitLike = UnitLike;
+    let rectangle: Rectangle = Rectangle {
+        width: 12,
+        height: 34,
+    };
+    println!("{}", rectangle.area());
+}
+
+struct Rectangle {
+    width: usize,
+    height: usize
+}
+
+impl Rectangle {
+    fn area(&self) -> usize {
+        self.width * self.height
+    }
 }
 
 struct UnitLike;
