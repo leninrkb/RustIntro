@@ -45,16 +45,69 @@ fn main() {
         height: 34,
     };
     println!("{}", rectangle.area());
+    println!("{:#?}", rectangle);
+    dbg!(&rectangle);
+    dbg!(&rectangle);
+    if rectangle.width() {
+        println!("width is greatter than 0: {}", rectangle.width);
+    }
+    let rec1: Rectangle = Rectangle {
+        width: 13,
+        height: 20
+    };
+    let rec2: Rectangle = Rectangle {
+        width: 12,
+        height: 14
+    };
+    println!("rec1 can hold rect2: {}", rec1.can_hold(&rec2)); 
+    let mut rec1 = Rectangle::new();
+    rec1.width = 10;
+    rec1.height = 23;
+    let rec2 = Rectangle::from(23, 78);
+    let rec2 = rec1.copy();
+    rec1.width = 90;
+    println!("{:#?}", rec1);
+    println!("{:#?}", rec2);
 }
 
+#[derive(Debug)]
 struct Rectangle {
     width: usize,
     height: usize
 }
 
 impl Rectangle {
-    fn area(&self) -> usize {
+    fn area(self: &Self) -> usize {
         self.width * self.height
+    }
+
+    fn width(&self) -> bool {
+        return self.width > 0;
+    }
+
+    fn can_hold(&self, rectangle: &Rectangle) -> bool {
+        self.width > rectangle.width && self.height > rectangle.height
+    }
+
+    fn new() -> Self {
+        Self{
+            width: 0,
+            height: 0
+        }
+    }
+
+    fn from(width: usize, height: usize) -> Self {
+        Self {
+            width,
+            height
+        }
+    }
+
+    fn copy(&self) -> Self {
+        Self {
+            width: self.width,
+            height: self.height
+        }
     }
 }
 
