@@ -13,3 +13,12 @@ pub fn vector_main() {
     vector[0] = 5;
     println!("{}", a);
 }
+
+fn get_vector_element() {
+    let mut vector: Vec<u32> = Vec::new();
+    vector.push(1);
+    vector.push(1);
+    vector.push(1);
+
+    let value: Option<&u32> = vector.get(0);
+}
