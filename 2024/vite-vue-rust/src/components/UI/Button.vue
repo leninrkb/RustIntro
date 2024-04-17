@@ -1,9 +1,5 @@
 <template>
-    <button class="rounded-md p-1 border
-     border-gray-500
-       hover:border-blue-500
-       transition ease-in-out
-       active:border-blue-700">
+    <button class="outline-none p-1 rounded-md transition ease-in-out">
         <slot></slot>
     </button>
 </template>

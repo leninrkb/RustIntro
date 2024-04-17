@@ -10,6 +10,7 @@
         </div>
         <div>
             <!-- options -->
+            <ScrapingOptions></ScrapingOptions>
         </div>
         <div>
             <!-- content -->
@@ -26,6 +27,7 @@
 </template>
 
 <script setup>
+import ScrapingOptions from '../components/ScrapingOptions.vue';
 import Search from '../components/Search.vue';
 import Header from '../components/Header.vue';
 import Column from '../components/layout/Column.vue';
