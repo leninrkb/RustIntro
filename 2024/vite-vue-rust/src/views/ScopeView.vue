@@ -1,8 +1,4 @@
 <template>
-    scope
-    here the component SCOPE should render both homeview and resultview
-    holding their states
-    <hr>
     <TextButton @click="cambiar">intercambiar</TextButton>
     <hr>
     <KeepAlive>
@@ -12,7 +8,7 @@
 
 <script setup>
 import TextButton from '../components/UI/TextButton.vue';
-import { ref, shallowRef } from 'vue'; 
+import { shallowRef } from 'vue'; 
 import HomeView from './HomeView.vue';
 import ResultView from './ResultView.vue';
 // 
