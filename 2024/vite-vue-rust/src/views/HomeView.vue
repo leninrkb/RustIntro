@@ -2,6 +2,7 @@
     <Column>
         <div>
             <!-- header -->
+            <Header></Header>
         </div>
         <div>
             <!-- search -->
@@ -24,5 +25,6 @@
 </template>
 
 <script setup>
+import Header from '../components/Header.vue';
 import Column from '../components/layout/Column.vue';
 </script>
