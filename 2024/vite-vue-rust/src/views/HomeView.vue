@@ -6,6 +6,7 @@
         </div>
         <div>
             <!-- search -->
+            <Search></Search>
         </div>
         <div>
             <!-- options -->
@@ -25,6 +26,7 @@
 </template>
 
 <script setup>
+import Search from '../components/Search.vue';
 import Header from '../components/Header.vue';
 import Column from '../components/layout/Column.vue';
 </script>
