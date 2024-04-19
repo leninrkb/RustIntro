@@ -1,23 +1,21 @@
-use std::{
-    fs::File,
-    io::{ErrorKind, Read},
-};
+use std::fs::File;
+use std::io::ErrorKind;
+use std::io::Error;
 
 pub fn body() {
     let file = File::open("../maifn.rs");
-    dbg!(&file);
-    // match file {
-    //     Result::Ok(file) => {
-    //         dbg!(file);
-    //         println!("todo bien");
-    //     }
-    //     Result::Err(error) => {
-    //         dbg!(error);
-    //         println!("[ERROR]: ayy! :( yo mejor me voy...");
-    //         println!(" * termina el programa xd *");
-    //     }
-    // }
+    error_handler(&file);
+    error_handler_fully(&file);
+}
 
+fn error_handler(file: &Result<File, Error>) {
+    match file {
+        Result::Ok(ok) => println!("tudu ben"),
+        Result::Err(error) => println!("error bro"),
+    }
+}
+
+fn error_handler_fully(file: &Result<File, Error>) {
     match file {
         Result::Ok(_file) => (),
         Result::Err(error) => match error.kind() {
