@@ -1,21 +1,24 @@
-use reqwest;
-use scraper;
+extern crate reqwest;
+extern crate scraper;
 
-fn main() {
-    let response = reqwest::blocking::get(
-        "https://www.imdb.com/search/title/?groups=top_100&sort=user_rating,desc&count=100",
-    )
-    .unwrap()
-    .text()
-    .unwrap();
+use scraper::{Html, Selector};
 
-    let document = scraper::Html::parse_document(&response);
+fn main(){
+    println!("Welcome! The data we are going to get is: ");
+    scrape_team_data("https://www.scoreboard.com/game/dallas-mavericks-golden-state-warriors-2019-2020/CYWskeOu/#game-summary|game-statistics;0|lineups;1");
+}
 
-    let title_selector = scraper::Selector::parse("h3.lister-item-header>a").unwrap(); 
+fn scrape_team_data(url:&str){
 
-    let titles = document.select(&title_selector).map(|x| x.inner_html());
+    let mut req = reqwest::get(url).unwrap();
+    assert!(req.status().is_success());
+    let doc_body = Html::parse_document(&req.text().unwrap());
 
-    titles
-        .zip(1..101)
-        .for_each(|(item, number)| println!("{}. {}", number, item));
+    let team = Selector::parse(".scoreboard").unwrap();
+
+    for team in doc_body.select(&team){
+        let teams = team.text().collect::<Vec<_>>();
+        println!("{}", teams[0]);
+    }
+
 }

@@ -1,7 +1,7 @@
 <template>
     <RowCenter class="gap-2">
         <TextField @text="bind_text"></TextField>
-        <OutlinedButton @click="go" class="px-10">GO</OutlinedButton>
+        <OutlinedButton @click="open_page" class="px-10">GO</OutlinedButton>
     </RowCenter>
 </template>
 
@@ -15,7 +15,7 @@ let text = ref('');
 const bind_text = (new_text) => {
     text.value = new_text;
 }
-const go = () => {
-    console.log(text.value);
+const open_page = async () => {
+    console.log("go to...");
 }
 </script>
